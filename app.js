@@ -1,51 +1,46 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const fs = require("fs");
+const fs = require('fs');
 
 
 app.set("view engine", "ejs");
 
+
+
 app.get("/", (req, res) => {
 
-    fs.readdir("uploads", (err, files) => {
-        if (err) {
-            console.log(err);
-        }
-        const notes = []
+    fs.readdir('./notes', (err, data) => {
 
-        for (const file of files) {
-            const description = fs.readFileSync(`uploads/${file}`, "utf-8")
+        /* data = [ 'note1.txt', 'note2.txt' ] */
 
-            notes.push({
-                title: file,
-                description: description
-            })
-        }
-        res.render("index", { notes });
+        res.render("index", { notes: data })
     })
+
 });
 
-app.get("/create", (req, res) => {
-    res.render("create");
+
+
+app.get('/new', (req, res) => {
+    res.render("new")
 })
 
-app.get('/create-note', (req, res) => {
-    console.log(req.query);
+app.get('/new-note', (req, res) => {
 
-    fs.writeFile(`uploads/${req.query.title}.txt`, req.query.description, (err) => {
-        if (err) {
-            console.log(err);
-        }
-        res.redirect("/");
+    fs.writeFile(`./notes/${req.query.title}.txt`, req.query.description, (err) => {
+        res.redirect("/")
     })
-
-
 })
 
+app.get('/notes/:title', (req, res) => {
+    const title = req.params.title
+
+    console.log(title)
+    fs.readFile(`./notes/${title}`, "utf-8", (err, data) => {
+        res.render("noteDetail", { note: data })
+    })
+})
 
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
 });
-
-
