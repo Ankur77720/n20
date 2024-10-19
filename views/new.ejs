@@ -9,49 +9,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="max-w-md mx-auto mt-10">
-        <form
-            action="/new-note"
-            class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-        >
-            <div class="mb-4">
-                <label
-                    class="block text-gray-700 text-sm font-bold mb-2"
-                    for="title"
-                >
-                    Title
-                </label>
-                <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="title"
-                    type="text"
-                    placeholder="Enter title"
-                    name="title"
-                >
-            </div>
-            <div class="mb-6">
-                <label
-                    class="block text-gray-700 text-sm font-bold mb-2"
-                    for="description"
-                >
-                    Description
-                </label>
-                <textarea
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="description"
-                    placeholder="Enter description"
-                    name="description"
-                ></textarea>
-            </div>
-            <div class="flex items-center justify-between">
-                <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    type="submit"
-                >
-                    Submit
-                </button>
-            </div>
+    <main class="p-4">
+        <h1>Create note</h1>
+
+        <form action="/new-note">
+            <input
+                type="text"
+                placeholder="Enter title"
+                class="p-2 rounded-md border border-2"
+                name="title"
+            >
+            <input
+                type="text"
+                placeholder="Enter description"
+                class="p-2 rounded-md border border-2"
+                name="description"
+            >
+
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md">
+                Create note
+            </button>
+
         </form>
-    </div>
+
+    </main>
 </body>
 </html>

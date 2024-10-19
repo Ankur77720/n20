@@ -9,26 +9,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <main class="bg-gray-100 w-screen p-4">
+    <main class="p-4">
+        <a
+            class="bg-blue-500 text-white px-4 py-2 rounded-md"
+            href="/new"
+        >New Note</a>
 
-        <a href="/new">
-            <button class="bg-blue-500 text-white px-4 py-2 rounded-md">
-                Create New Note
-            </button>
-        </a>
+        <!-- files = [ 'note1.txt', 'note2.txt' ] -->
 
+        <% files.forEach(file=>{ %>
+        <a href="/notes/<%= file %>"><%= file %></a>
+        <%  })%>
 
-        <div class="notes mt-4 flex gap-3 flex-wrap">
-
-            <% notes.forEach(note=>{ %>
-            <a
-                href="/notes/<%= note %>"
-                class="note p-4 bg-white rounded-md shadow-md w-[300px]"
-            >
-                <h1><%= note %></h1>
-            </a>
-            <%}) %>
-        </div>
     </main>
 </body>
 </html>

@@ -1,0 +1,11 @@
+Notes taking application
+
+Home page (/ route)
+    Jitne bhi notes wo show honge => description
+    New note (button) => new page ( /new )
+
+/ new
+    form
+        title
+        description
+        Submit (button) => server pr ek request jaegi note create krne ki => user ko wapis home page redirect (/ route)
