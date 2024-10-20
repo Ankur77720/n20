@@ -18,7 +18,14 @@
         <!-- files = [ 'note1.txt', 'note2.txt' ] -->
 
         <% files.forEach(file=>{ %>
-        <a href="/notes/<%= file %>"><%= file %></a>
+        <div class="bg-gray-200 p-4 rounded-md mt-4">
+            <h1 class="text-2xl font-bold"><%= file %></h1>
+
+            <a href="/edit/<%= file %>">
+                Edit
+            </a>
+
+        </div>
         <%  })%>
 
     </main>

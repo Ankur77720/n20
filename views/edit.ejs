@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <main>
+        <form action="/edit-note/<%= title %>">
+            <h1>Update note</h1>
+            <input
+                type="text"
+                placeholder="Enter title"
+                class="p-2 rounded-md border border-2"
+                name="title"
+                value="<%= title %>"
+            >
+            <input
+                type="text"
+                placeholder="Enter description"
+                class="p-2 rounded-md border border-2"
+                name="description"
+                value="<%= description %>"
+            >
+
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md">
+                Update note
+            </button>
+        </form>
+    </main>
+</body>
+</html>

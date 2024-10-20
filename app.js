@@ -6,12 +6,10 @@ app.set('view engine', "ejs")
 
 
 app.get('/', (req, res) => {
-
     fs.readdir('./notes', (err, files) => {
         console.log(files)
         res.render('index', { files })
     })
-
 })
 
 app.get('/new', (req, res) => {
@@ -30,6 +28,34 @@ app.get('/new-note', (req, res) => {
     /* File create krna, file ke ander data likhna */
 
 
+
+})
+
+
+/* /edit/note1.txt */
+
+app.get('/edit/:title', (req, res) => {
+    const title = req.params.title /* note1.txt */
+    fs.readFile(`./notes/${title}`, 'utf-8', (err, data) => {
+        res.render('edit', {
+            title: title,
+            description: data
+        })
+    })
+})
+
+app.get('/edit-note/:oldTitle', (req, res) => {
+    const oldTitle = req.params.oldTitle
+    const title = req.query.title /* note3.txt */
+    const description = req.query.description
+
+    fs.rename(`./notes/${oldTitle}`, `./notes/${title}`, (err) => {
+
+        fs.writeFile(`./notes/${title}`, description, (err) => {
+            res.redirect('/')
+        })
+
+    })
 
 })
 

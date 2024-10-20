@@ -9,3 +9,12 @@ Home page (/ route)
         title
         description
         Submit (button) => server pr ek request jaegi note create krne ki => user ko wapis home page redirect (/ route)
+
+/edit/:title
+    form
+     title (data already fill hoga)
+     description (data already fill hoga)
+     update => server => update => redirect (/)
+
+/delete/:title
+    server => delete => redirect (/)
